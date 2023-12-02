@@ -1,0 +1,51 @@
+/*-----------HEADER SECTION----------*/
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    margin: 0 auto;
+    background-color: #234054;
+    color:white;
+    padding: 2px;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    background-color:#6933ff;
+    padding: 12px;
+    margin: 40px 15px;
+    width: 660px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.5s;
+}
+
+input {
+    border-radius: 5px;
+    width: 660px;
+    height: 40px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+footer{
+    text-align: center;
+}
