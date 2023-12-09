@@ -1,0 +1,122 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+input:focus{
+    background-color:gray;
+    color:white;
+  }
+  
+
+/*-----------HEADER SECTION----------*/
+header{
+    background-image: linear-gradient(to right, #5d4b7d , #5d8cc2);;
+	color: white;
+	padding: 0 1%;
+}
+
+#header-div {
+	padding: 0px;
+	margin: 0px;
+}
+#home-click {
+	display: grid;
+	grid-template-columns: 44% 55%;
+	column-gap: 1%;
+}
+h1 {
+	color: white;
+	font-size: 48px;
+	font-family: 'Trebuchet MS', sans-serif;
+	text-align: left;
+	padding: 5px;
+	margin: 0px}
+
+#dolphin-logo {
+	margin: auto 0 auto auto;
+  height: 50px;
+}
+a {
+	text-decoration: none;
+}
+
+main {
+	padding: 1% auto;
+}
+
+/*-----------------LOGIN SECTION-------------------------*/
+
+#login-div {
+	display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+	margin: 1% 35%;
+  padding: 0;
+}
+#login-title {
+	text-align: center;
+	font-size: 36px;
+	margin: 2% 0;
+}
+#login-email, #login-password {
+	height: 36px;
+	width: 90%;
+	border: 1px solid black;
+	border-radius: 50px;
+	font-size: 18px;
+	padding: 0% 5%;
+	margin: 2% auto;
+}
+#login-button {
+  background-color: #117da8;
+  min-width: 100%;
+	display: grid;
+	grid-template-columns: 10% 78% 10%;
+	column-gap: 1%;
+	height: 36px;
+	border: 0;
+	color: white;
+	font-weight: bold;
+	border-radius: 50px;
+  width: 100%;
+	padding: 1% 5%;
+	margin: 2% auto;
+  transition: background-color 0.5s;
+}
+#login-button:hover {
+	background-color: #67a1b8;
+}
+#login-padlock, #login-button p {
+	margin: auto 0;
+	padding: 0;
+	font-size: 18px;
+}
+#login-padlock {
+	invert: 100%;
+	-webkit-filter: invert(100%);
+	height: 20px;
+  float: left;
+}
+#login-button-text {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+#login-error {
+	margin: auto 0;
+	padding: 0;
+	font-size: 18px;
+	color: #aa0000;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
