@@ -35,5 +35,6 @@ CREATE TABLE Notes (
     FOREIGN KEY (created_by) REFERENCES Users(id)
 );
 
+
 INSERT INTO Users (firstname, lastname, password, email, role, created_at) 
 VALUES ('Admin', 'User', 'hashed_password123', 'admin@project2.com', 'admin', NOW());
