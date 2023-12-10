@@ -56,14 +56,17 @@ function handleButtonClick(buttonId) {
         case 'SalesLead':
             // Perform actions for the 'Sales Lead' button
             console.log('Sales Lead button clicked');
+            dashboardDisplayQuery(buttonId);
             break;
         case 'Support':
             // Perform actions for the 'Support' button
             console.log('Support button clicked');
+            dashboardDisplayQuery(buttonId);
             break;
         case 'Assignedtome':
             // Perform actions for the 'Assigned to me' button
             console.log('Assigned to me button clicked');
+            dashboardDisplayQuery(buttonId);
             break;
         default:
             // Default action if the buttonId doesn't match any case
