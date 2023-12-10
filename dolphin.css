@@ -114,9 +114,241 @@ main {
 	color: #aa0000;
 }
 
+/*--------------------FOOTER SECTION-------------------*/
 footer{
     position: fixed;
     bottom: 0;
     text-align: center;
     width: 100%;
 }
+
+/*-----------------DASHBOARD-------------------------*/
+
+#db-div{
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: 1fr;
+	margin:0;
+	padding: 0;
+  }
+  
+  #db-div ul{
+	grid-column: 0,1;
+	grid-row:1,2;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	background-color: white;
+	padding-bottom:92%;
+	padding-top:8%;
+	margin:0;
+	
+  }
+  
+  #db-div li{
+	display:flex;
+	text-decoration: none;
+	list-style-type: none;
+	align-items: center;
+  }
+  
+  .sideicon{
+	height: 64px;
+	width: 64px;
+  }
+  
+  #db-div section{
+	grid-column: 2;
+	grid-row: 1;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	row-gap: 12px;
+	background-color:#f3f4f6;
+  }
+  
+  .dbdiv-header{
+	grid-row: 1;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 12.5%;
+	padding-right: 12.5%;
+  }
+  
+  #db-div section table{
+	border:30px solid white;
+	background-color: white;
+	width:75%;
+	margin: auto;  
+  }
+  
+  #db-div section table th{
+	background-color: #f3f4f6;
+	padding:12px;
+	text-align: left;
+  }
+  
+  #db-div section table td{
+	border: 0;
+  }
+  
+  /*----------------------- DASHBOARD HOME -------------------------------------*/
+  
+  #db-home-header input{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: auto;
+	height: 50%;
+	width: 15%;
+	background-color: #5e03fc;
+	color: white;
+	font-weight: bold;
+	text-align:center;
+	vertical-align: center;
+	border-radius: 5px;
+  }
+  
+  #db-home-header input:hover{
+	background-color: #4502ba;
+	}
+  
+  #stickypatch{
+	display:flex;
+	align-items:center;
+  }
+  
+  #filter{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+  }
+  
+  #filter *{
+	border: 0;
+	font-size: 24px;
+	background-color: white;
+	color: #4f46e5;
+  }
+  
+  #filter *:hover{
+	transition: 0.25s;
+	font-weight: bold;
+	border-bottom: #4502ba 2px solid;
+	
+  }
+  
+  #db-home-table input{
+	background-color: white;
+	border:0;
+	font-size: 16px;
+	color: #4f46e5;
+  }
+  
+  
+  
+  
+  /*-------------------------------DASHBOARD USERS---------------------------------*/
+  
+  #db-users-header input{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: auto;
+	height: 50%;
+	width: 15%;
+	background-color: #4f46e5;
+	color: white;
+	text-align:center;
+	vertical-align: center;
+	
+  }
+  
+  #db-users-header input:hover{
+	height: 65%;
+	background-color: green;
+	transition: 1s;
+  }
+  #db-users-header input:not(:hover){
+	transition: 0.5s;
+  }
+
+
+/*--------ADD USER SECTION--------------- */
+
+#newuserform{
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	background-color: white;
+	padding: 20px;
+  }
+  
+  #newuserform * input, #newuserform select{
+	height: 32px;
+	border-radius: 15px;
+	padding: 5px;
+	margin-top: 12px;
+  }
+  
+  .inline-flex{
+	display: inline-flex;
+	flex-direction: column;
+	width: 45%;
+	font-size: 24px;
+  }
+  
+  .flex-block{
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	font-size: 24px;
+	margin-top: 2%;
+	margin-bottom: 1%;
+  }
+  
+  .splittwo{
+	display: flex;
+	width:80%;
+	flex-direction: row;
+	justify-content: space-between;
+  }
+  
+  
+  #newusersave{
+	float:right;
+	background-color:#4f46e5;
+	padding: 20px;
+	border-radius: 10px;
+	border: 0;
+	
+  }
+
+  /*--------------------New Contact Form--------------------------*/
+#newcontactform{
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	background-color:white;
+	padding: 30px;
+  }
+  
+  #newcontactform * input, #newcontactform * select{
+	height: 32px;
+	border-radius: 15px;
+	padding: 5px;
+  }
+  
+  #savenewcontact{
+	float:right;
+	background-color:#4f46e5;
+	padding: 20px;
+	color:white;
+	border-radius: 10px;
+	border: 0;
+	
+  }
