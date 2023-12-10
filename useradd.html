@@ -5,7 +5,7 @@
         <meta charset='UTF-8'>
         <title>dashboard</title>
         <!--link rel='stylesheet' href='dolphin.css'-->
-        <link rel='stylesheet' href='dashboard.css'>
+        <link rel='stylesheet' href='adduser.css'>
         <link rel='stylesheet' href='selectorButtons.css'>
         <!-- <script type='module' src='scripts/main.js'></script> -->
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -53,27 +53,39 @@
                     <div id = 'show'>
                     <main>
     
-                    <div class='page-top'>
-                        <h2>Dashboard</h2>
-    
-                        <div>
-                            <button id='createBtn'>+ Add Contact</button>
+                        <div class="new-user">
+                            <form action="new_user.php" action="get">
+                                <div id="user-info">
+                                    <label for="fname">First Name</label>
+                                    <input id="fname" type="text" name="fname" placeholder="Jane"/>
+                                </div>
+            
+                                <div id="user-info">
+                                    <label for="lname">Last Name</label>
+                                    <input id="lname" type="text" name="lname" placeholder="Doe"/>
+                                </div>
+                                
+                                <div id="user-info">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" name="email" placeholder="something@example.com"/>
+                                </div>
+                                
+                                <div id="user-info">
+                                    <label for="password">Password</label>
+                                    <input id="password" type="password" name="password"/>
+                                </div>
+                                                  
+                                <div id="user-info">
+                                <label for="role">Role</label>
+                                <select name="role" id="role">
+                                    <option value="Member">Member</option>
+                                    <option value="Admin">Admin</option>
+                                </select> 
+                                </div>
+            
+                                <button id="save" type="submit">Save</button>
+                            </form>
                         </div>
-                    </div>
-    
-                    <div class='selectors'>
-                        <p>Filter By: </p>
-    
-                        <div class='selector-buttons'>
-                            <button id='all' class='filterBtn'>ALL</button>
-                            <button id='SalesLead' class='filterBtn'>Sales Lead</button>
-                            <button id='Support' class='filterBtn'>Support</button>
-                            <button id='Assignedtome' class='filterBtn'>Assigned to me</button>
-
-                        </div>
-                    </div>
-
-                    <div id = 'table'></div>
                     </div>
                 </main>
             </div>

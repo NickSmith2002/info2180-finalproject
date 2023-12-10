@@ -1,0 +1,445 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+input:focus{
+    background-color:gray;
+    color:white;
+  }
+  
+
+/*-----------HEADER SECTION----------*/
+header{
+    background-image: linear-gradient(to right, #5d4b7d , #5d8cc2);;
+	color: white;
+	padding: 0 1%;
+}
+
+#header-div {
+	padding: 0px;
+	margin: 0px;
+}
+#home-click {
+	display: grid;
+	grid-template-columns: 44% 55%;
+	column-gap: 1%;
+}
+h1 {
+	color: white;
+	font-size: 48px;
+	font-family: 'Trebuchet MS', sans-serif;
+	text-align: left;
+	padding: 5px;
+	margin: 0px}
+
+#dolphin-logo {
+	margin: auto 0 auto auto;
+  height: 50px;
+}
+a {
+	text-decoration: none;
+}
+
+main {
+	padding: 1% auto;
+}
+
+/*-----------------LOGIN SECTION-------------------------*/
+
+#login-div {
+	display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+	margin: 1% 35%;
+  padding: 0;
+}
+#login-title {
+	text-align: center;
+	font-size: 36px;
+	margin: 2% 0;
+}
+#login-email, #login-password {
+	height: 36px;
+	width: 90%;
+	border: 1px solid black;
+	border-radius: 50px;
+	font-size: 18px;
+	padding: 0% 5%;
+	margin: 2% auto;
+}
+#login-button {
+  background-color: #117da8;
+  min-width: 100%;
+	display: grid;
+	grid-template-columns: 10% 78% 10%;
+	column-gap: 1%;
+	height: 36px;
+	border: 0;
+	color: white;
+	font-weight: bold;
+	border-radius: 50px;
+  width: 100%;
+	padding: 1% 5%;
+	margin: 2% auto;
+  transition: background-color 0.5s;
+}
+#login-button:hover {
+	background-color: #67a1b8;
+}
+#login-padlock, #login-button p {
+	margin: auto 0;
+	padding: 0;
+	font-size: 18px;
+}
+#login-padlock {
+	invert: 100%;
+	-webkit-filter: invert(100%);
+	height: 20px;
+  float: left;
+}
+#login-button-text {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+#login-error {
+	margin: auto 0;
+	padding: 0;
+	font-size: 18px;
+	color: #aa0000;
+}
+
+/*--------------------FOOTER SECTION-------------------*/
+footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/*-----------------DASHBOARD-------------------------*/
+
+#db-div{
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: 1fr;
+	margin:0;
+	padding: 0;
+  }
+  
+  #db-div ul{
+	grid-column: 0,1;
+	grid-row:1,2;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	background-color: white;
+	padding-bottom:92%;
+	padding-top:8%;
+	margin:0;
+	
+  }
+  
+  #db-div li{
+	display:flex;
+	text-decoration: none;
+	list-style-type: none;
+	align-items: center;
+  }
+  
+  .sideicon{
+	height: 64px;
+	width: 64px;
+  }
+  
+  #db-div section{
+	grid-column: 2;
+	grid-row: 1;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	row-gap: 12px;
+	background-color:#f3f4f6;
+  }
+  
+  .dbdiv-header{
+	grid-row: 1;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 12.5%;
+	padding-right: 12.5%;
+  }
+  
+  #db-div section table{
+	border:30px solid white;
+	background-color: white;
+	width:75%;
+	margin: auto;  
+  }
+  
+  #db-div section table th{
+	background-color: #f3f4f6;
+	padding:12px;
+	text-align: left;
+  }
+  
+  #db-div section table td{
+	border: 0;
+  }
+  
+  /*----------------------- DASHBOARD HOME -------------------------------------*/
+  
+#db-home-header input{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: auto;
+	height: 50%;
+	width: 15%;
+	background-color: #5e03fc;
+	color: white;
+	font-weight: bold;
+	text-align:center;
+	vertical-align: center;
+	border-radius: 5px;
+  }
+  
+  #db-home-header input:hover{
+	background-color: #4502ba;
+	}
+  
+  #stickypatch{
+	display:flex;
+	align-items:center;
+  }
+  
+  #filter{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+  }
+  
+  #filter *{
+	border: 0;
+	font-size: 24px;
+	background-color: white;
+	color: #4f46e5;
+  }
+  
+  #filter *:hover{
+	transition: 0.25s;
+	font-weight: bold;
+	border-bottom: #4502ba 2px solid;
+	
+  }
+  
+  #db-home-table input{
+	background-color: white;
+	border:0;
+	font-size: 16px;
+	color: #4f46e5;
+  }
+  
+  .container{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "sidebar main"
+}
+
+aside{
+    grid-area: sidebar;
+    height: 100vh;
+    background-color: #E2E8F0;
+}
+  
+  
+  /*-------------------------------DASHBOARD USERS---------------------------------*/
+  
+  #db-users-header input{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: auto;
+	height: 50%;
+	width: 15%;
+	background-color: #4f46e5;
+	color: white;
+	text-align:center;
+	vertical-align: center;
+	
+  }
+  
+  #db-users-header input:hover{
+	height: 65%;
+	background-color: green;
+	transition: 1s;
+  }
+  #db-users-header input:not(:hover){
+	transition: 0.5s;
+  }
+
+
+/*--------ADD USER SECTION--------------- */
+
+#newuserform{
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	background-color: white;
+	padding: 20px;
+  }
+  
+  #newuserform * input, #newuserform select{
+	height: 32px;
+	border-radius: 15px;
+	padding: 5px;
+	margin-top: 12px;
+  }
+  
+  .inline-flex{
+	display: inline-flex;
+	flex-direction: column;
+	width: 45%;
+	font-size: 24px;
+  }
+  
+  .flex-block{
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	font-size: 24px;
+	margin-top: 2%;
+	margin-bottom: 1%;
+  }
+  
+  .splittwo{
+	display: flex;
+	width:80%;
+	flex-direction: row;
+	justify-content: space-between;
+  }
+  
+  
+  #newusersave{
+	float:right;
+	background-color:#4f46e5;
+	padding: 20px;
+	border-radius: 10px;
+	border: 0;
+	
+  }
+
+  /*--------------------New Contact Form--------------------------*/
+#newcontactform{
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	background-color:white;
+	padding: 30px;
+  }
+  
+  #newcontactform * input, #newcontactform * select{
+	height: 32px;
+	border-radius: 15px;
+	padding: 5px;
+  }
+  
+  #savenewcontact{
+	float:right;
+	background-color:#4f46e5;
+	padding: 20px;
+	color:white;
+	border-radius: 10px;
+	border: 0;
+	
+  }
+
+  /*------------------ADD USER-----------------------*/
+  .form {
+    background-color: white;
+    grid-area: main;
+
+    display: grid;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    
+    border-radius: 6px;
+    height: 40%;
+    width: 80%;
+}
+.firstname{
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+.lastname{
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+.email{
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+.password{
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+.role{
+    grid-row: 4/5;
+    grid-column: 1/2;
+}
+.savediv {
+    grid-row: 5/6;
+    grid-column: 1/3;
+
+    display: flex;
+    justify-content: center;
+}
+.save {
+    background-color: #f9fafb;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    padding-right: 10px;
+
+    border-radius: 6px;
+    width: 97%;
+    height: 70%;
+}
+
+input[type = text], select {
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 15px;
+
+    border-radius: 6px;
+    width: 95%;
+    height: 30%;
+}
+label {
+    margin-left: 15px;
+}
+
+.savebtn {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+
+    border-radius: 6px;
+    width: 6%;
+    height: 55%;
+}

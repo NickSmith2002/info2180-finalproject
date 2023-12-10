@@ -246,3 +246,44 @@ cursor: pointer;
 }
 
 
+/*--------ADD USER SECTION--------------- */
+
+.new-user form {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+.new-user input {
+    margin-top: 5px;
+    width: 400px;
+    border: 1px solid #cfd1d0;
+}
+
+.new-user select {
+    display: block;
+    border-radius: 4px;
+    padding: 7px;
+    border: 1px solid #cfd1d0;
+    margin-top: 5px;
+    width: 415px;
+}
+
+.new-user #save {
+    background-color: #0443cc;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    padding: 7px 5px;
+    width: 60px;
+    height: 28px;
+    cursor: pointer;
+    margin: 30px 0 0 350px;
+}
+
