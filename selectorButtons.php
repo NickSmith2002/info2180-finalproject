@@ -20,15 +20,15 @@ if (isset($_GET['selector_button'])){
 
     
     $selected_btn = $_GET['selector_button'];
-    echo "<table id ='customers'";
-    echo "<thead>";
-        echo "<tr>";
-            echo "<th>". "Table Heading"."<th>";
-            echo "<th>". "Table Heading"."<th>";
-            // echo "<th>". "Table Heading"."<th>";
+    // echo "<table id ='customers'";
+    // echo "<thead>";
+    //     echo "<tr>";
+    //         echo "<th>". "Table Heading"."<th>";
+    //         echo "<th>". "Table Heading"."<th>";
+    //         // echo "<th>". "Table Heading"."<th>";
             
-        echo "<tr>";
-    echo "</thead>";
+    //     echo "<tr>";
+    // echo "</thead>";
 
     if($selected_btn == 'all'){
         echo "<p>This is a test in selectorButtons.php</P>";
@@ -38,17 +38,31 @@ if (isset($_GET['selector_button'])){
         $stmt->execute();
 
         // Fetch all rows as associative array
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($result as $row) {
-            echo "<tr>".$row['title']." " .$row['firstname']."</tr>";
-            echo "<tr>".$row['lastname']."</tr>";
-        }
-    }
+        echo '
+        <table id="customers">
+		<th>Name</th>
+		<th>Email</th>
+		<th>Company</th>
+		<th>Type</th>
+        <th></th>
+		';
+		
+		// echo var_dump($results);
+		foreach($results as $row){
+			echo '<tr>';
+			echo '<td>'.$row["title"]." ".$row["firstname"]." ".$row["lastname"]."</td>";
+			echo '<td>'.$row["email"].'</td>';
+			echo '<td>'.$row["company"].'</td>';
+			echo '<td>'.$row["type"].'</td>';
+			echo '<td> <a href = "#"> view </a> </td>';
+			echo '</tr>';
+		}
 
-
-    echo "</table>";
+		echo '</table>';
     
+    }
 }
 
 ?>
