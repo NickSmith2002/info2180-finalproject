@@ -27,6 +27,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="contact.css" type="text/css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<!-- <script src="schema.js" type="text/javascript"></script> -->
     
     <title>Contact Details</title>
@@ -106,9 +107,9 @@
                     echo '<p class="date">'.date('F j, Y', strtotime($row['created_at'])).'</p>';
                 
              
-                }
+                }?>
                  
-                ?>
+                
                 <h4>Add a note about <?= explode(" ", $_SESSION['cx_name'])[1] ?></h4>
                 <textarea id="text" name="text">Enter details here...</textarea>
                 <button id="add-note">Add Note</button>
