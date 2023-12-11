@@ -2,7 +2,7 @@
     session_start();
     // $role = $_SESSION['role']; 
     
-    if(!isset($_SESSION['role'])){
+    if(!isset($_SESSION['role'] )){
         // true;
         header("Location: login.html");
         session_destroy();
@@ -11,6 +11,7 @@
     }
     else{
        true;
+       
     }
 
 ?>

@@ -1,120 +1,92 @@
-
-
-
 document.addEventListener('DOMContentLoaded', function(){
-    var  selector_buttons = document.querySelector(".selector-buttons");
+    var selector_buttons = document.querySelector(".selector-buttons");
     var logout_btn = document.querySelector('#logout');
-    
-    // console.log(selector_buttons);
 
-    logout_btn.addEventListener('click',function(){
+    // Logout button click event
+    logout_btn.addEventListener('click', function(){
         window.location.href = 'logout.php';
-
     });
 
-    for ( var element of selector_buttons.children ){
-        element.addEventListener('click',function(){
+    // Selector buttons click events
+    for (var element of selector_buttons.children){
+        element.addEventListener('click', function(){
             handleButtonClick(this.id);
-        }); 
-    }
-
-    function dashboardDisplayQuery(selectotBtn_id){
-        var queryStringData = {
-            selector_button: selectotBtn_id,
-            // Add more parameters as needed
-        };
-        
-        $.ajax({
-            url: "selectorButtons.php", // Replace with your PHP script URL
-            method: "GET",
-            data: queryStringData, // Data to be sent as a query string
-            // dataType: "json", // Specify the expected data type
-            // success: function(data) {
-            //     // Handle the successful response here
-            //     console.log("Data received:", data);
-            // },
-            success: function(response) {
-                // Display the response in the designated area
-                $("#table").html(response);
-                dashboard_view_all = document.querySelectorAll(".dashboard_view");
-                // console.log(dashboard_view_all);
-                for (var row of dashboard_view_all) {
-                    console.log(row.id);
-                    row.addEventListener('click',function(){
-                        // add login to view customer info
-                        cusotomerViewQuery(row.id);
-
-                    });
-                }
-
-            },
-            error: function() {
-                // Handle errors here
-                console.error("Error in GET request");
-            }
-
         });
     }
 
-
+    // Function to handle button clicks
     function handleButtonClick(buttonId) {
         switch (buttonId) {
             case 'all':
-                // Perform actions for the 'ALL' button
-                console.log('ALL button clicked');
-                dashboardDisplayQuery(buttonId);
-                break;
             case 'SalesLead':
-                // Perform actions for the 'Sales Lead' button
-                console.log('Sales Lead button clicked');
-                dashboardDisplayQuery(buttonId);
-                break;
             case 'Support':
-                // Perform actions for the 'Support' button
-                console.log('Support button clicked');
-                dashboardDisplayQuery(buttonId);
-                break;
             case 'Assignedtome':
-                // Perform actions for the 'Assigned to me' button
-                console.log('Assigned to me button clicked');
+                // Perform actions for the respective buttons
+                console.log(buttonId + ' button clicked');
                 dashboardDisplayQuery(buttonId);
                 break;
             default:
-                // Default action if the buttonId doesn't match any case
                 console.log('Unknown button clicked');
         }
     }
 
-    function cusotomerViewQuery(view_id) {
+    // Function to handle dashboard display query
+    function dashboardDisplayQuery(selectorBtnId) {
+        var queryStringData = {
+            selector_button: selectorBtnId,
+            // Add more parameters as needed
+        };
+
         $.ajax({
-            url: "selectorButtons.php", // Replace with your PHP script URL
+            url: "selectorButtons.php",
             method: "GET",
-            data: queryStringData, // Data to be sent as a query string
-            // dataType: "json", // Specify the expected data type
-            // success: function(data) {
-            //     // Handle the successful response here
-            //     console.log("Data received:", data);
-            // },
+            data: queryStringData,
             success: function(response) {
                 // Display the response in the designated area
                 $("#table").html(response);
-                dashboard_view_all = document.querySelectorAll(".dashboard_view");
-                // console.log(dashboard_view_all);
-                for (var row of dashboard_view_all) {
-                    console.log(row.id);
-                    row.addEventListener('click',function(){
-                        // add login to view customer info
-                        cusotomerViewQuery(row.id);
 
+                // Add click events to dashboard view rows
+                dashboard_view_all = document.querySelectorAll(".dashboard_view");
+                for (var row of dashboard_view_all) {
+                    row.addEventListener('click', function(){
+                        // Open a new window/tab with contacts.php
+                        cusotomerViewQuery(this.id);
                     });
                 }
-
             },
             error: function() {
-                // Handle errors here
                 console.error("Error in GET request");
             }
-
         });
     }
+
+    // Function to handle customer view query
+    function cusotomerViewQuery(viewId) {
+        var queryStringData1 = {
+            view_id: viewId,
+        };
+
+        $.ajax({
+            url: "contactsView.php",
+            method: "GET",
+            data: queryStringData1,
+            success: function(data) {
+                // Display the response in the designated area
+                console.log("Data received:", data);
+
+                // Open a new window/tab with contacts.php
+                window.open('contacts.php', '_blank');
+            },
+            error: function() {
+                console.error("Error in GET request");
+            }
+        });
+    }
+});
+
+$(document).ready(function () {
+    var switch_btn = $('#switch');
+    switch_btn.on('click', function () {
+        switch_btn.text("clicked");
+    });
 });

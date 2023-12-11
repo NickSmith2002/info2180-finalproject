@@ -1,4 +1,4 @@
-<?php // adding login script
+<!-- <?php // adding login script
     session_start();
     // $role = $_SESSION['role']; 
     
@@ -11,9 +11,15 @@
     }
     else{
        true;
+       if ($_SESSION['role']  && $_SESSION['cx_name'] ){
+
+       }else{
+        header("Location: dashboard.php");
+        exit;
+       }
     }
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +27,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="contact.css" type="text/css" rel="stylesheet" />
-	<script src="schema.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<!-- <script src="schema.js" type="text/javascript"></script> -->
+    
     <title>Contact Details</title>
 </head>
 <body>
@@ -57,9 +65,9 @@
         <main>
             <div class="info">
                 <img class="contact-img" src="images/uicon.png" alt="pic of icon"/>
-                <h2>Mr. Michael Scott</h2>
-                <p>Created on November 9, 2022 by David Wallace</p>
-                <p>Updated on Novemeber 13, 2022</p>
+                <h2 id = "contact_name"><?=$_SESSION['cx_name']?></h2>
+                <p>Created on <?=$_SESSION['created_at']?> by <?=$_SESSION['created_by']?> </p>
+                <p>Updated on <?=$_SESSION['updated_at']?></p>
             </div>
             <div class="btn">
                 <button id="assign">Assign to me</button>
@@ -68,55 +76,47 @@
             <div class="section" id="display-info">
                 <div class="column">
                     <label for="email">Email</label>
-                    <p> something </p>
+                    <p> <?=$_SESSION['cx_email']?> </p>
                     <input type="email" id="email" name="email" placeholder=""/> 
                 </div>
                 <div class="column">
                     <label for="tel">Telephone</label>
-                    <p> something </p>
+                    <p> <?=$_SESSION['cx_tel']?> </p>
                     <input type="tel" id="tel" name="tel" placeholder=""/> 
                 </div>
                 <div class="column">
                     <label for="company">Company</label>
-                    <p> something </p>
+                    <p> <?=$_SESSION['cx_company']?> </p>
                     <input type="text" id="company" name="company" placeholder=""/> 
                 </div>
                 <div class="column">
                     <label for="assigned">Assigned To</label>
-                    <p> something </p>
+                    <p> <?=$_SESSION['cx_assigned']?> </p>
                     <input type="text" id="assigned" name="assigned" placeholder=""/> 
                 </div>
             </div>
             <div class="section" id="note-section">
                 <h4>Notes</h4>
                 <hr>
-                <h4>Jane Doe</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec laoreet nisl. 
-                    Mauris in mi efficitur, lobortis nibh ut, lobortis nisl. Curabitur volutpat nisi diam, 
-                    eget tincidunt nibh accumsan ut. Nullam euismod ornare quam ut consectetur. Integer 
-                    luctus purus metus, aliquam cursus erat elementum non. In et dui in diam porttitor vestibulum. 
-                    Vivamus in laoreet justo, nec commodo elit.</p>
-                <p class="date">November 10, 2022 at 4pm</p>
-                <h4>John Doe</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec laoreet nisl. 
-                    Mauris in mi efficitur, lobortis nibh ut, lobortis nisl. Curabitur volutpat nisi diam, 
-                    eget tincidunt nibh accumsan ut. Nullam euismod ornare quam ut consectetur. Integer 
-                    luctus purus metus, aliquam cursus erat elementum non. In et dui in diam porttitor vestibulum. 
-                    Vivamus in laoreet justo, nec commodo elit.</p>
-                <p class="date">November 10, 2022 at 4pm</p>
-                <h4>John Doe</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec laoreet nisl. 
-                    Mauris in mi efficitur, lobortis nibh ut, lobortis nisl. Curabitur volutpat nisi diam, 
-                    eget tincidunt nibh accumsan ut. Nullam euismod ornare quam ut consectetur. Integer 
-                    luctus purus metus, aliquam cursus erat elementum non. In et dui in diam porttitor vestibulum. 
-                    Vivamus in laoreet justo, nec commodo elit.</p>
-                <p class="date">November 10, 2022 at 4pm</p>
-                <h4>Add a note about Michael</h4>
+                <?php 
+                $notes = json_decode($_SESSION['notes'], true);
+                
+                foreach ($notes as $row) {
+                    echo '<h4>'.$row['created_by_']. '</h4>';
+                    echo '<p>'.$row['comment'].'</p>';
+                    echo '<p class="date">'.date('F j, Y', strtotime($row['created_at'])).'</p>';
+                
+             
+                }?>
+                 
+                
+                <h4>Add a note about <?= explode(" ", $_SESSION['cx_name'])[1] ?></h4>
                 <textarea id="text" name="text">Enter details here...</textarea>
                 <button id="add-note">Add Note</button>
             </div>
+            
         </main> 
     </div>
-    
+    <script src="script.js" type="text/javascript"></script>
 </body>
 </html>

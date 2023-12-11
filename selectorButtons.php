@@ -3,7 +3,7 @@ session_start();
 
 $host       = 'localhost';
 $db         = 'dolphin_crm';
-$username   = 'dolphin_crm_user';
+$username   = 'dolphin_crm_user2';
 $password   = 'password123';
 
 try {
@@ -60,7 +60,7 @@ if (isset($_GET['selector_button'])){
     }
     elseif ($selected_btn == 'Assignedtome')  {
         // add code 
-        $query = "SELECT * FROM contacts JOIN users ON contacts.assigned_to = users.id WHERE users.email = :user_email";
+        $query = "SELECT contacts.title, contacts.email,contacts.firstname, contacts.lastname, contacts.company, contacts.type, contacts.id FROM contacts JOIN users ON contacts.assigned_to = users.id WHERE users.email = :user_email";
         $stmt = $conn->prepare($query);
 
         // Bind the session email value to the parameter
@@ -95,6 +95,7 @@ if (isset($_GET['selector_button'])){
 			echo '<td> <p class = "dashboard_view" id = '.$row['id'].' > view </p> </td>';
 			echo '</tr>';
 		}
+        
 
 		
     

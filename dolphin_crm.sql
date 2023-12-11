@@ -1,7 +1,3 @@
-DROP DATABASE IF EXISTS dolphin_crm;
-CREATE DATABASE dolphin_crm;
-USE dolphin_crm;
-
 CREATE TABLE Users (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(255),
@@ -39,9 +35,11 @@ CREATE TABLE Notes (
     FOREIGN KEY (created_by) REFERENCES Users(id)
 );
 
+INSERT INTO `contacts` (`id`, `title`, `firstname`, `lastname`, `email`, `telephone`, `company`, `type`, `assigned_to`, `created_by`, `created_at`, `updated_at`) VALUES (NULL, 'Mr.', 'Daney', 'Brown', 'Db@gmail.com', '3333333333', 'Company 2', 'SUPPORT', '1', '1', '2023-12-10 23:44:27', '2023-12-10 23:44:27');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `role`, `created_at`) VALUES (NULL, 'calvin', 'stephenson', 'password123', 'calvin@gmail.com', 'Admin', '2023-12-10 23:40:41');
+INSERT INTO `contacts` (`id`, `title`, `firstname`, `lastname`, `email`, `telephone`, `company`, `type`, `assigned_to`, `created_by`, `created_at`, `updated_at`) VALUES (NULL, 'Ms.', 'Fran', 'Moreland', 'fran@icould.com', '9123453345', 'Prat and Associates', 'SUPPORT', '1', '1', '2023-12-04 23:47:09', '2023-12-04 23:47:09');
+-- INSERT INTO Users (firstname, lastname, password, email, role, created_at) 
+-- VALUES ('Admin', 'User', 'hashed_password123', 'admin@project2.com', 'admin', NOW());
 
-INSERT INTO Users (firstname, lastname, password, email, role, created_at) 
-VALUES ('Admin', 'User', 'hashed_password123', 'admin@project2.com', 'admin', NOW());
-
-CREATE USER 'dolphin_crm_user'@'localhost' IDENTIFIED VIA mysql_native_password USING '***';
-GRANT ALL PRIVILEGES ON *.* TO 'dolphin_crm_user'@'localhost' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `dolphin\_crm`.* TO 'dolphin_crm_user'@'localhost';
+-- CREATE USER 'dolphin_crm_user'@'localhost' IDENTIFIED VIA mysql_native_password USING '***';
+-- GRANT ALL PRIVILEGES ON *.* TO 'dolphin_crm_user'@'localhost' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `dolphin\_crm`.* TO 'dolphin_crm_user'@'localhost';

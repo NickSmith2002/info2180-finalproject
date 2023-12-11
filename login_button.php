@@ -39,6 +39,8 @@ if (isset($_POST['login_btn_email']) && isset($_POST['login_btn_password'])) {
         if ($row['email'] === $login_email && $row['password'] === $login_password) {
             $_SESSION['role'] = $row['role'];
             $_SESSION['email'] = $row['email'];
+            $_SESSION['user_firstname'] = $row['firstname'];
+            $_SESSION['user_lastname'] = $row['lastname'];
             echo "success";
             // break;
             exit;
