@@ -85,5 +85,36 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-    
+    function cusotomerViewQuery(view_id) {
+        $.ajax({
+            url: "selectorButtons.php", // Replace with your PHP script URL
+            method: "GET",
+            data: queryStringData, // Data to be sent as a query string
+            // dataType: "json", // Specify the expected data type
+            // success: function(data) {
+            //     // Handle the successful response here
+            //     console.log("Data received:", data);
+            // },
+            success: function(response) {
+                // Display the response in the designated area
+                $("#table").html(response);
+                dashboard_view_all = document.querySelectorAll(".dashboard_view");
+                // console.log(dashboard_view_all);
+                for (var row of dashboard_view_all) {
+                    console.log(row.id);
+                    row.addEventListener('click',function(){
+                        // add login to view customer info
+                        cusotomerViewQuery(row.id);
+
+                    });
+                }
+
+            },
+            error: function() {
+                // Handle errors here
+                console.error("Error in GET request");
+            }
+
+        });
+    }
 });
