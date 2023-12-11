@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host       = 'localhost';
 $db         = 'dolphin_crm';
 $username   = 'dolphin_crm_user';
@@ -11,6 +13,7 @@ try {
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+
 
 
 
@@ -36,12 +39,16 @@ if (isset($_GET['selector_button'])){
         // echo "<p>This is a test in selectorButtons.php</P>";
         // Query to select all data from your_table_name
         $query = "SELECT * FROM Contacts";
+        $stmt = $conn->prepare($query);
+
     } elseif ($selected_btn == 'SalesLead')  {
         // add code 
         $query =   "SELECT *
                     FROM Contacts
                     WHERE Contacts.type = 'SALES LEAD';";
                     // echo 'SalesLead';
+
+        $stmt = $conn->prepare($query);
         
     }
     elseif ($selected_btn == 'Support')  {
@@ -49,15 +56,21 @@ if (isset($_GET['selector_button'])){
         $query =   "SELECT *
                     FROM Contacts
                     WHERE Contacts.type = 'SUPPORT';";
+        $stmt = $conn->prepare($query);
     }
     elseif ($selected_btn == 'Assignedtome')  {
         // add code 
-        echo `<p>Assignedtome</p>`;
+        $query = "SELECT * FROM contacts JOIN users ON contacts.assigned_to = users.id WHERE users.email = :user_email";
+        $stmt = $conn->prepare($query);
+
+        // Bind the session email value to the parameter
+        $stmt->bindParam(':user_email', $_SESSION['email']);
+        
     }
 
 
-    
-        $stmt = $conn->prepare($query);
+        
+        
         $stmt->execute();
 
         // Fetch all rows as associative array
@@ -83,7 +96,7 @@ if (isset($_GET['selector_button'])){
 			echo '</tr>';
 		}
 
-		echo '</table>';
+		
     
     }
 

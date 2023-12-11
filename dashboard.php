@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    // $role = $_SESSION['role']; 
+    
+    if(!isset($_SESSION['role'])){
+        // true;
+        header("Location: login.html");
+        session_destroy();
+        exit;
+        
+    }
+    else{
+       true;
+    }
+
+?>
 <!DOCTYPE html>
     <html lang='en'>
     
@@ -45,6 +61,8 @@
                     <section class='link'>
                         <img src='./images/logout.png' alt=''>
                         <button id='logout'><i class='fa fa-sign-out' aria-hidden='true'></i>Logout</button>
+                        
+                        <!-- <a href="#">THis </a> -->
                     </section> 
                 </aside>
     
