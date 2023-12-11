@@ -1,0 +1,351 @@
+/* page general layout */
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+	padding: 0;
+    overflow-x: hidden;
+    
+}
+.container {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    height: 100%;
+}
+
+main {
+    grid-column: 2;
+    height: max-content;
+    background-color: #f0f2f2;
+    padding-left: 40px;
+}
+
+/* banner CSS */
+header {
+    background-image: linear-gradient(to right, #5d4b7d , #5d8cc2);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 2;
+}
+
+img {
+    height: 48px;
+    width: 60px;
+    margin-left: 30px;
+}
+
+header h1 {
+    font-size: 48px;
+	font-family: 'Trebuchet MS', sans-serif;
+	text-align: left;
+	padding: 5px;
+	margin: 0px;
+    color: white;
+}
+
+.link img {
+    width: 25px;
+    height: 25px;
+    padding-right: 5px;
+    }
+
+/* menu CSS */
+ul{
+    list-style: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.menu {
+    grid-column: 1;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+hr {
+    width: 90%;
+    margin-left: 0;
+}
+
+/* view contacts / add note page CSS */
+.contact-img {
+    float: left;
+    height: 70px;
+    width: 70px;
+    margin: 0;
+    margin-right: 10px;
+}
+
+#display-info {
+    display: grid;
+    grid-template-columns: 500px 700px;
+    justify-content: space-between;
+    grid-gap: 20px;
+}
+
+#display-info input {
+    width: 350px;
+   /* border: none; */
+}
+
+.column p {
+    margin-top: 0;
+    color: #21356b;
+}
+
+.info {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.info h2 {
+    margin: 3px 0;
+}
+
+.info p {
+    margin: 0;
+}
+
+.btn {
+    position: absolute;
+    right: 50px;
+    top: 100px;
+}
+
+#assign {
+    background-color: #48BB78;
+}
+
+#switch {
+    background-color: #e3d407;
+}
+
+#assign, #switch {
+    border-radius: 7px;
+    border: none;
+    padding: 7px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.section {
+    display: grid;
+    grid-template-rows: auto auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 3px;
+    margin-top: 15px;
+    background-color: white;
+    padding: 15px 25px;
+    margin-right: 20px;
+}
+
+.section h4 {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.section hr {
+    border: 1px dotted grey;
+    width: 98%;
+}
+
+.date {
+    margin-top: 0;
+}
+
+#text {
+    margin: 20px 15px 10px 10px;
+    padding: 10px;
+}
+
+#add-note {
+    border-radius: 4px;
+    background-color: #0443cc;
+    width: 90px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 1050px;
+}
+
+/* home page CSS */
+.dash-heading {
+    height: 30px;
+    width: 150px;
+    margin-bottom: 0;
+    margin-right: 950px;
+    margin-top: 0;
+}
+
+#add-contact {
+    background-color: #0443cc;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.dash-div {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 18px;
+    margin-bottom: 15px;
+}
+
+#home, #adduser, #userlist, #logout {
+    font-size: 18px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sansserif;
+    background: none;
+    border: none;
+    padding: 0;
+    }
+
+/* div for filter btns on dashboard */
+.filter-btn { 
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-right: 35px;
+    background-color: white;
+}
+
+.filter-btn h3 {
+    margin-left: 20px;
+}
+
+.filter-btn button {
+    background: none;
+    border: none;
+    margin-left: 18px;
+    transition: 0.15s;
+}
+
+.filter-btn button:hover {
+    border-radius: 0;
+    border-bottom: 3px solid blueviolet;
+    color: blueviolet;
+}
+
+.home-list {
+    background-color: white;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-right: 35px;
+}
+
+.home-list table thead {
+    background-color: #f0f2f2;
+}
+
+.home-list table td, .home-list table th {
+    padding: 15px;
+}
+
+.home-list table {
+   border-collapse: collapse;
+   width: 100%;
+   text-align: left;
+}
+
+/* login page CSS */
+#login {
+    background-color: #0443cc;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #0443cc;
+    cursor: pointer;
+    width: 416px;
+}
+
+input, button {
+    border-radius: 4px;
+    padding: 7px;
+}
+
+input {
+    display: block;
+    margin-bottom: 10px;
+    width: 400px;
+    border: 1px solid grey;
+}
+
+.access {
+    display: grid;
+    margin: auto;
+    width: 50%;
+    padding: 10%;
+    text-align: center;
+    justify-content: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    height: 60px;
+}
+
+footer p {
+    text-align: center;
+}
+
+/* new_contact page CSS */
+
+.new-contact form {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+#title, #assigned, #type {
+    display: block;
+}
+
+#assigned, #type {
+    width: 415px;
+}
+
+.new-contact input {
+    margin-top: 5px;
+    width: 400px;
+    border: 1px solid #cfd1d0;
+}
+
+.new-contact select {
+    border-radius: 4px;
+    padding: 7px;
+    border: 1px solid #cfd1d0;
+    margin-top: 5px;
+}
+
+.new-contact #save {
+    background-color: #0443cc;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    padding: 7px 5px;
+    width: 60px;
+    cursor: pointer;
+    margin: 15px 0 0 1020px;
+}
+
+
+

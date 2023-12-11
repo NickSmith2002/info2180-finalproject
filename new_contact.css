@@ -61,8 +61,6 @@ padding-left: 40px;
 grid-area: main;
 display: flex;
 flex-direction: column;
-height: 100%;
-width: 100%;
 }
 
 form {
@@ -250,190 +248,42 @@ cursor: pointer;
 
 /*--------ADD USER SECTION--------------- */
 
-.new-user {
-    background-color: white;
-
-    grid-area: main;
-
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 6px;
-    height: 40%;
-    width: 80%;
-}
-.new-user form{
+.new-contact form {
     display: grid;
-    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    
-    height: 100%;
-    width: 100%;
-}
-.new-user form input, select {
-
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    margin-left: 15px;
-
-    border-radius: 6px;
-    border: 1px solid #cfd1d0;
-    width: 95%;
-    height: 30%;
-}
-.new-user form label {
-    margin-left: 15px;
-}
-.new-user #firstnameui{
-    grid-row: 2/3;
-    grid-column: 1/2;
-}
-.new-user #lastnameui{
-    grid-row: 2/3;
-    grid-column: 2/3;
-}
-.new-user #emailui{
-    grid-row: 3/4;
-    grid-column: 1/2;
-}
-.new-user #passwordui{
-    grid-row: 3/4;
-    grid-column: 2/3;
-}
-.new-user #roleui{
-    grid-row: 4/5;
-    grid-column: 1/2;
-}
-.new-user .savediv {
-    grid-row: 5/6;
-    grid-column: 1/3;
-
-    display: flex;
-    justify-content: center;
-}
-.new-user .save {
-    background-color: #f9fafb;
-
-    display: flex;
-    justify-content: end;
-    align-items: center;
-
-    padding-right: 10px;
-
-    border-radius: 6px;
-    width: 97%;
-    height: 70%;
-}
-.new-user #savebtn {
-    background-color: #4f46e5;
-    color: white;
-    font-weight: bold;
-    border: none;
-    
-    cursor: pointer;
-
-    border-radius: 6px;
-    width: 6%;
-    height: 55%;
-}
-
-/*}*/
-
-/*--------ADD CONTACT SECTION--------------- */
-.new-contact {
+    grid-template-columns: 500px 500px;
     background-color: white;
-
-    grid-area: main;
-
+    padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 6px;
-    height: 70%;
-    width: 95%;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-bottom: 15px;
 }
-.new-contact form{
-    display: grid;
-    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    
-    height: 100%;
-    width: 100%;
-}
-.new-contact form input, select {
 
+.new-contact input {
     margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    margin-left: 15px;
-
-    border-radius: 6px;
+    width: 400px;
     border: 1px solid #cfd1d0;
-    width: 95%;
-    height: 30%;
 }
-.new-contact form label {
-    margin-left: 15px;
-}
-.new-contact #titleci{
-    grid-row: 2/3;
-    grid-column: 1/2;
-}
-.new-contact #firstnameci{
-    grid-row: 3/4;
-    grid-column: 1/2;
-}
-.new-contact #lastnameci{
-    grid-row: 3/4;
-    grid-column: 2/3;
-}
-.new-contact #emailci{
-    grid-row: 4/5;
-    grid-column: 1/2;
-}
-.new-contact #telephoneci{
-    grid-row: 4/5;
-    grid-column: 2/3;
-}
-.new-contact #companyci{
-    grid-row: 5/6;
-    grid-column: 1/2;
-}
-.new-contact #typeci{
-    grid-row: 5/6;
-    grid-column: 2/3;
-}
-.new-contact #assignedci{
-    grid-row: 6/7;
-    grid-column: 1/2;
-}
-.new-contact .savediv {
-    grid-row: 7/8;
-    grid-column: 1/3;
 
-    display: flex;
-    justify-content: center;
+.new-contact select {
+    display: block;
+    border-radius: 4px;
+    padding: 7px;
+    border: 1px solid #cfd1d0;
+    margin-top: 5px;
+    width: 415px;
 }
-.new-contact .save {
-    background-color: #f9fafb;
 
-    display: flex;
-    justify-content: end;
-    align-items: center;
-
-    padding-right: 10px;
-
-    border-radius: 6px;
-    width: 97%;
-    height: 70%;
-}
-.new-contact #savebtn {
-    background-color: #4f46e5;
+.new-contact #save {
+    background-color: #0443cc;
     color: white;
-    font-weight: bold;
+    border-radius: 4px;
     border: none;
-    
+    font-weight: bold;
+    padding: 7px 5px;
+    width: 60px;
+    height: 28px;
     cursor: pointer;
-
-    border-radius: 6px;
-    width: 6%;
-    height: 55%;
+    margin: 30px 0 0 350px;
 }
-/*}*/
+
