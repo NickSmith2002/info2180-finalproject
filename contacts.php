@@ -1,3 +1,19 @@
+<?php // adding login script
+    session_start();
+    // $role = $_SESSION['role']; 
+    
+    if(!isset($_SESSION['role'])){
+        // true;
+        header("Location: login.html");
+        session_destroy();
+        exit;
+        
+    }
+    else{
+       true;
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

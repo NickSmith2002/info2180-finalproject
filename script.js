@@ -4,6 +4,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     var  selector_buttons = document.querySelector(".selector-buttons");
     var logout_btn = document.querySelector('#logout');
+    
     // console.log(selector_buttons);
 
     logout_btn.addEventListener('click',function(){
@@ -35,6 +36,17 @@ document.addEventListener('DOMContentLoaded', function(){
             success: function(response) {
                 // Display the response in the designated area
                 $("#table").html(response);
+                dashboard_view_all = document.querySelectorAll(".dashboard_view");
+                // console.log(dashboard_view_all);
+                for (var row of dashboard_view_all) {
+                    console.log(row.id);
+                    row.addEventListener('click',function(){
+                        // add login to view customer info
+                        cusotomerViewQuery(row.id);
+
+                    });
+                }
+
             },
             error: function() {
                 // Handle errors here
@@ -72,4 +84,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 console.log('Unknown button clicked');
         }
     }
+
+    
 });

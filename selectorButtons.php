@@ -92,7 +92,7 @@ if (isset($_GET['selector_button'])){
 			echo '<td>'.$row["email"].'</td>';
 			echo '<td>'.$row["company"].'</td>';
 			echo '<td>'.$row["type"].'</td>';
-			echo '<td> <a href = "#"> view </a> </td>';
+			echo '<td> <p class = "dashboard_view" id = '.$row['id'].' > view </p> </td>';
 			echo '</tr>';
 		}
 
