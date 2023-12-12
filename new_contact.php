@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+// session_start(); 
+include 'loadAdminAssign.php';
+?>
 <!DOCTYPE html>
 <html lang='en'>
 

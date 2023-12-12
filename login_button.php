@@ -37,7 +37,8 @@ if (isset($_POST['login_btn_email']) && isset($_POST['login_btn_password'])) {
     $_SESSION['admin_view_users'] = [];
     foreach ($results as $row) {
         // code here to check for the member
-        if ($row['email'] === $login_email && $row['password'] === $login_password) {
+        
+        if ($row['email'] === $login_email && password_verify($login_password, $row['password']) ) {
             $_SESSION['role'] = $row['role'];
             $_SESSION['id'] = $row['id'];
             $_SESSION['email'] = $row['email'];

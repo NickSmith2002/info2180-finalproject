@@ -79,35 +79,37 @@
     
                                     <div class = 'user-info' id = 'firstname'>
                                         <label for = 'fname'>First Name</label><br>
-                                        <input type = 'text' id = 'fname' name = 'fname' placeholder= 'Jane'>
+                                        <input type = 'text' id = 'fname_user' name = 'fname' placeholder= 'Jane'>
                                     </div>
     
                                     <div class = 'user-info' id = 'lastname'>
                                         <label for = 'lname'>Last Name</label><br>
-                                        <input type = 'text' id = 'lname' name = 'lname' placeholder= 'Doe'>
+                                        <input type = 'text' id = 'lname_user' name = 'lname' placeholder= 'Doe'>
                                     </div>
     
                                     <div class = 'user-info' id = 'email'>
                                         <label for = 'email'>Email</label><br>
-                                        <input type = 'text' id = 'email' name = 'email' placeholder= 'something@example.com'>
+                                        <input type = 'email' id = 'email_user' name = 'email' placeholder= 'something@example.com'>
                                     </div>
     
-                                    <div class = 'user-info' id = 'password'>
-                                        <label for = 'password'>Password</label><br>
-                                        <input type = 'text' id = 'password' name = 'password'>
+                                    <div class='user-info' id='password'>
+                                        <label for='password'>Password</label><br>
+                                        <!-- pattern='^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$' -->
+                                        <input type='password' id='passwordInput_user' name='password'  title='Password must be at least 8 characters long and include at least one letter and one number.' required>
+                                        <!-- The pattern attribute contains the regular expression -->
                                     </div>
     
                                     <div class = 'user-info' id = 'role'>
                                         <label for = 'role'>Role</label><br>
-                                        <select id = 'role' name = 'role'>
-                                            <option value = 'member'>Member</option>
-                                            <option value = 'admin'>Admin</option>
+                                        <select id = 'role_user' name = 'role'>
+                                            <option value = 'Member'>Member</option>
+                                            <option value = 'Admin'>Admin</option>
                                         </select>
                                     </div>
                                     
                                     <div class = 'savediv'>
                                         <div class = 'save'>
-                                            <button id = 'savebtn' type= 'submit'>Save</button>
+                                            <button id = 'savebtn_NewUser' type= 'submit'>Save</button>
                                         </div>
                                     </div>
     

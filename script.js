@@ -165,7 +165,7 @@ $(document).ready(function () {
     var add_Newcontact = $('#savebtn');
 
     add_Newcontact.on('click', function (event) {
-        event.preventDefault();
+        // event.preventDefault();
         queryStringData = {
             title_ : $('#title').val(),
             f_name: $('#fname').val(),
@@ -180,7 +180,7 @@ $(document).ready(function () {
         
       
         
-        console.log(queryStringData);
+        // console.log(queryStringData);
         
         $.ajax({
             url: "add_cusomerLogic.php",
@@ -195,6 +195,41 @@ $(document).ready(function () {
             }
         });
     });
+
+    
+
+    var savebtn_NewUser = $('#savebtn_NewUser');
+
+    savebtn_NewUser.on('click', function (event) {
+        // event.preventDefault();
+        queryStringData = {
+        
+            f_name_user: $('#fname_user').val(),
+            l_name_user: $('#lname_user').val(),
+            email_user: $('#email_user').val(),
+            password_user: $('#passwordInput_user').val(),
+            role_user: $('#role_user').val()
+
+        }
+        
+      
+        
+        // console.log(queryStringData);
+        
+        $.ajax({
+            url: "addUserLogic.php",
+            method: "POST",
+            data: queryStringData,
+            success: function(response) {
+                // Display the response in the designated area
+                // switch_btn.text("Switch to " + response.newType);
+            },
+            error: function() {
+                console.error("Error in GET request");
+            }
+        });
+    });
+
 
 
 });
