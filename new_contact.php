@@ -37,10 +37,26 @@
                 <button id='adduser'><i class='fa fa-users' aria-hidden='true'></i>New Contact</button>
             </section>
 
-            <section class='link'>
+
+
+            <!-- <section class='link'>
                 <img src='./images/users.png' alt=''>
                 <button id='userlist'><i class='fa fa-user-circle-o' aria-hidden='true'></i>Users</button>
-            </section>
+            </section> -->
+
+            <?php 
+            // session_start();
+                if (isset($_SESSION['role'])) {
+                    if ($_SESSION['role']=="Admin") {
+                        echo '<section id ="admin_only" class="link">
+                            <img src="./images/users.png" alt= "">
+                            <button id="userlist"><i class="fa fa-user-circle-o" aria-hidden"true"></i>Users</button>
+                        </section> ';
+                    }
+                }
+            ?>
+
+            
 
             <section class='link'>
                 <img src='./images/logout.png' alt=''>
