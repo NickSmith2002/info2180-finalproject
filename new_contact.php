@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -37,10 +38,26 @@
                 <button id='adduser'><i class='fa fa-users' aria-hidden='true'></i>New Contact</button>
             </section>
 
-            <section class='link'>
+
+
+            <!-- <section class='link'>
                 <img src='./images/users.png' alt=''>
                 <button id='userlist'><i class='fa fa-user-circle-o' aria-hidden='true'></i>Users</button>
-            </section>
+            </section> -->
+
+            <?php 
+            // session_start();
+                if (isset($_SESSION['role'])) {
+                    if ($_SESSION['role']=="Admin") {
+                        echo '<section id ="admin_only" class="link">
+                            <img src="./images/users.png" alt= "">
+                            <button id="userlist"><i class="fa fa-user-circle-o" aria-hidden"true"></i>Users</button>
+                        </section> ';
+                    }
+                }
+            ?>
+
+            
 
             <section class='link'>
                 <img src='./images/logout.png' alt=''>
@@ -101,14 +118,28 @@
                                 <option value="Support">Support</option>
                             </select>
                         </div>
+                        
+                        <div>
+                        
+                        
+                        </div>
 
                         <div class="contact-info" id='assignedci'>
                             <label for="assigned">Assigned To</label><br>
                             <select name="assigned" id="assigned">
-                                <option value="rand()">Andy Bernard</option>
+                            <?php
+                                session_start();
+                                
+                                foreach ($_SESSION['admin_view_users'] as $key => $value) {
+                                    echo '<option value="' . $key . '">' . $key. '</option>';
+                                    
+                                }
+                                
+                                 ?>
+                                <!-- <option value="rand()">Andy Bernard</option>
                                 <option value="rand()">Jen Levinson</option>
                                 <option value="rand()">Michael Scott</option>
-                                <option value="rand()">David Wallace</option>
+                                <option value="rand()">David Wallace</option> -->
                             </select>
                         </div>
 

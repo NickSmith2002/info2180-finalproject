@@ -55,11 +55,12 @@
                     </section> 
 
                     <?php 
+                    if (isset($_SESSION['role'])) {
                     if ($_SESSION['role']=="Admin") {
                     echo '<section id ="admin_only" class="link">
                         <img src="./images/users.png" alt= "">
                         <button id="userlist"><i class="fa fa-user-circle-o" aria-hidden"true"></i>Users</button>
-                    </section> ';}
+                    </section> ';}}
                     ?>
 
                     <section class='link'>

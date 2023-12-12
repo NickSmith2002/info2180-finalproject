@@ -120,17 +120,19 @@ $(document).ready(function () {
             window.location.href = 'new_user.php';
         }
         else{
-            window.location.href = 'new_contact.html';
+            window.location.href = 'new_contact.php';
         }
         
     });
 
     home_.on('click', function () {
         window.location.href ='dashboard.php';
+
     });
 
     add_user.on('click', function () {
-        window.location.href ='new_contact.html';
+        window.location.href ='new_contact.php';
+
     });
 
     userlist_btn.on('click', function () {
@@ -158,5 +160,41 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    var add_Newcontact = $('#savebtn');
+
+    add_Newcontact.on('click', function (event) {
+        event.preventDefault();
+        queryStringData = {
+            title_ : $('#title').val(),
+            f_name: $('#fname').val(),
+            l_name: $('#lname').val(),
+            email_: $('#email').val(),
+            company_: $('#company').val(),
+            assigned_to_: $('#assigned').val(),
+            tel: $('#tel').val(),
+            type_: $('#type').val()
+
+        }
+        
+      
+        
+        console.log(queryStringData);
+        
+        $.ajax({
+            url: "add_cusomerLogic.php",
+            method: "POST",
+            data: queryStringData,
+            success: function(response) {
+                // Display the response in the designated area
+                // switch_btn.text("Switch to " + response.newType);
+            },
+            error: function() {
+                console.error("Error in GET request");
+            }
+        });
+    });
+
 
 });
