@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -117,14 +118,28 @@
                                 <option value="Support">Support</option>
                             </select>
                         </div>
+                        
+                        <div>
+                        
+                        
+                        </div>
 
                         <div class="contact-info" id='assignedci'>
                             <label for="assigned">Assigned To</label><br>
                             <select name="assigned" id="assigned">
-                                <option value="rand()">Andy Bernard</option>
+                            <?php
+                                session_start();
+                                
+                                foreach ($_SESSION['admin_view_users'] as $key => $value) {
+                                    echo '<option value="' . $key . '">' . $key. '</option>';
+                                    
+                                }
+                                
+                                 ?>
+                                <!-- <option value="rand()">Andy Bernard</option>
                                 <option value="rand()">Jen Levinson</option>
                                 <option value="rand()">Michael Scott</option>
-                                <option value="rand()">David Wallace</option>
+                                <option value="rand()">David Wallace</option> -->
                             </select>
                         </div>
 

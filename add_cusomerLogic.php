@@ -22,7 +22,7 @@ if (
     $telephone = $_POST['tel'];
     $company = $_POST['company_'];
     $type = $_POST['type_'];
-    $assigned_to = 2;//$_POST['assigned_to_'];
+    $assigned_to = $_SESSION['admin_view_users'][$_POST['assigned_to_']] ;
     $created_by = $_SESSION['id']; // Assuming a default value for created_by, change as needed
 
     $created_at = date('Y-m-d H:i:s');

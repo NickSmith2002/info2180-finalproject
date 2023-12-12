@@ -21,9 +21,10 @@ if (isset($_POST['login_btn_email']) && isset($_POST['login_btn_password'])) {
     $login_password = $_POST['login_btn_password'];
 
 
-    $query = "SELECT * FROM users WHERE email = :login_email";
+    $query = "SELECT * FROM users" ;
+    // WHERE email = :login_email;
     $stmt = $conn->prepare($query);
-    $stmt->bindParam(':login_email', $login_email);
+    // $stmt->bindParam(':login_email', $login_email);
     $stmt->execute();
 
     // Fetch all rows as associative array
@@ -33,7 +34,7 @@ if (isset($_POST['login_btn_email']) && isset($_POST['login_btn_password'])) {
         echo "<p> Login failed </p>";
         exit;
     }
-
+    $_SESSION['admin_view_users'] = [];
     foreach ($results as $row) {
         // code here to check for the member
         if ($row['email'] === $login_email && $row['password'] === $login_password) {
@@ -43,13 +44,29 @@ if (isset($_POST['login_btn_email']) && isset($_POST['login_btn_password'])) {
             $_SESSION['user_firstname'] = $row['firstname'];
             $_SESSION['user_lastname'] = $row['lastname'];
             echo "success";
-            // break;
-            exit;
+            
+        }
+        $_SESSION['admin_view_users'][$row['firstname'] . ' ' . $row['lastname']] = $row['id'];
+    }
+
+    if (isset($_SESSION['role'] )) {
+        
+        if ($_SESSION['role'] == "Member"){
+            unset($_SESSION['admin_view_users']);
+            $full_name = $_SESSION['user_firstname'].' '.$_SESSION['user_lastname'];
+            $_SESSION['admin_view_users'] = [$full_name => $_SESSION['id']];
+        } elseif($_SESSION['role'] != "Admin"){
+            unset($_SESSION['admin_view_users']);
         }
     }
-    echo "<p> Login failed </p>";
-    // $_SESSION['role'] = 'failed';
-    // session_destroy();
+
+    if (!isset($_SESSION['role'])){
+        echo "<p> Login failed </p>";
+        session_destroy();
+        exit;
+
+    }
+   
 }
 
 ?>
