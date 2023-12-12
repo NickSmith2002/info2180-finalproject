@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Function to handle button clicks
     function handleButtonClick(buttonId) {
+        $('#createBtn').text('+ New Contact');
         switch (buttonId) {
             case 'all':
             case 'SalesLead':
@@ -84,9 +85,78 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 
+
+
 $(document).ready(function () {
     var switch_btn = $('#switch');
+    var add_user = $('#adduser');
+    var createBtn = $('#createBtn');
+    var home_ = $('#home');
+    var userlist_btn = $('#userlist');
+
     switch_btn.on('click', function () {
         switch_btn.text("clicked");
+        queryStringData = {
+            switch_to : switch_btn.text() 
+        }
+        
+        $.ajax({
+            url: "contactsView.php",
+            method: "GET",
+            data: queryStringData,
+            success: function(response) {
+                // Display the response in the designated area
+                switch_btn.text("Switch to " + response.newType);
+            },
+            error: function() {
+                console.error("Error in GET request");
+            }
+        });
     });
+
+
+    createBtn.on('click', function () {
+        if ($('#createBtn').text() == "+ Add User"){
+            window.location.href = 'new_user.php';
+        }
+        else{
+            window.location.href = 'new_contact.html';
+        }
+        
+    });
+
+    home_.on('click', function () {
+        window.location.href ='dashboard.php';
+    });
+
+    add_user.on('click', function () {
+        window.location.href ='new_contact.html';
+    });
+
+    userlist_btn.on('click', function () {
+        var add_btn = $('#createBtn').text();
+        queryStringData = {
+            userlist_ : 'clicked' 
+        }
+        $.ajax({
+            url: "selectorButtons.php",
+            method: "GET",
+            data: queryStringData,
+            success: function(response) {
+                // Display the response in the designated area
+                $("#table").html(response);
+               if(add_btn == '+ Add User'){
+                
+            }else{
+                $('#createBtn').text('+ Add User');
+            }
+
+            
+            },
+            error: function() {
+                console.error("Error in GET request");
+            }
+        });
+    });
+
 });

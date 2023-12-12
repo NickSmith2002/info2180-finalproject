@@ -54,10 +54,13 @@
                         <button id='adduser'><i class='fa fa-users' aria-hidden='true'></i>New Contact</button>
                     </section> 
 
-                    <section class='link'>
-                        <img src='./images/users.png' alt=''>
-                        <button id='userlist'><i class='fa fa-user-circle-o' aria-hidden='true'></i>Users</button>
-                    </section> 
+                    <?php 
+                    if ($_SESSION['role']=="Admin") {
+                    echo '<section id ="admin_only" class="link">
+                        <img src="./images/users.png" alt= "">
+                        <button id="userlist"><i class="fa fa-user-circle-o" aria-hidden"true"></i>Users</button>
+                    </section> ';}
+                    ?>
 
                     <section class='link'>
                         <img src='./images/logout.png' alt=''>
@@ -76,7 +79,7 @@
                         <h2>Dashboard</h2>
     
                         <div>
-                            <button id='createBtn'>+ Add Contact</button>
+                            <button id='createBtn'><?php if (isset($_SESSION['add_userOR_contact_btn'])) {echo '+ Add User';}else{echo '+ New Contact';} ?></button>
                         </div>
                     </div>
     
