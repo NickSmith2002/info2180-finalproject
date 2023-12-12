@@ -1,39 +1,11 @@
 <?php
-session_start();
-
-$host       = 'localhost';
-$db         = 'dolphin_crm';
-$username   = 'dolphin_crm_user2';
-$password   = 'password123';
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
-
-
-
-
+include 'conns.php';
 
 
 if (isset($_GET['selector_button'])){
 
     
     $selected_btn = $_GET['selector_button'];
-    // echo "<table id ='customers'";
-    // echo "<thead>";
-    //     echo "<tr>";
-    //         echo "<th>". "Table Heading"."<th>";
-    //         echo "<th>". "Table Heading"."<th>";
-    //         // echo "<th>". "Table Heading"."<th>";
-            
-    //     echo "<tr>";
-    // echo "</thead>";
-    // echo '<p> The slected button is :  '.$selected_btn </p>`;
-    // echo "knadfkjndfkjsdnfkjsdnfskjdfn";
 
     if($selected_btn == 'all'){
         // echo "<p>This is a test in selectorButtons.php</P>";
@@ -96,9 +68,36 @@ if (isset($_GET['selector_button'])){
 			echo '</tr>';
 		}
         
-
+        unset($_SESSION['add_userOR_contact_btn']);
 		
     
+    } elseif(isset($_GET['userlist_'])){
+        $query = "SELECT * FROM users";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        echo '
+        <table id="customers">
+		<th>Name</th>
+		<th>Email</th>
+		<th>Role</th>
+		<th>Created</th>
+       
+		';
+        foreach($results as $row){
+			echo '<tr>';
+			echo '<td>'.$row["firstname"]." ".$row["lastname"]."</td>";
+			echo '<td>'.$row["email"].'</td>';
+			echo '<td>'.$row["role"].'</td>';
+			echo '<td>'.$row["created_at"].'</td>';
+			
+			echo '</tr>';
+		}
+        $_SESSION['add_userOR_contact_btn'] = "+ User";
+
+      
     }
 
 
